@@ -10,7 +10,7 @@ import {
 import { UiProvider } from '../lib/providers/UiProvider';
 
 const client = new ApolloClient({
-  uri: 'https://flyby-router-demo.herokuapp.com/',
+  uri: 'http://127.0.0.1:8080/',
   cache: new InMemoryCache(),
 });
 
