@@ -1,0 +1,30 @@
+overwrite: true
+schema:
+  - 'src/hooks/*.graphql'
+  - 'src/page-features/**/*.graphql'
+# documents:
+#   - 'src/components/**/*.tsx'
+#   - 'src/hooks/**/*.tsx'
+#   - 'src/layouts/**/*.tsx'
+#   - 'src/lib/**/*.tsx'
+#   - 'src/page-features/**/*.tsx'
+#   - 'src/pages/**/*.tsx'
+#   - 'src/lib/**/*.tsx'
+#   - 'src/util/**/*.tsx'
+generates:
+  # schema:
+  # - 'src/components/**/*.graphql'
+  # - 'src/hooks/**/*.graphql'
+  # - 'src/layouts/**/*.graphql'
+  # - 'src/lib/**/*.graphql'
+  # - 'src/page-features/**/*.graphql'
+  # - 'src/pages/**/*.graphql'
+  # - 'src/lib/**/*.graphql'
+  # - 'src/util/**/*.graphql'
+  # - 'src/graphql/*.graphql'
+  src/graphql/generated/:
+    preset: 'client'
+    plugins: []
+  ./graphql.schema.json:
+    plugins:
+      - 'introspection'
