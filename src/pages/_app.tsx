@@ -1,29 +1,24 @@
 import type { AppProps } from 'next/app';
 
 import '../styles/globals.css';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  gql,
-} from '@apollo/client';
+import { Client, Provider, cacheExchange, fetchExchange } from 'urql';
 import { UiProvider } from '../lib/providers/UiProvider';
 
-const client = new ApolloClient({
-  uri: 'http://127.0.0.1:8080/query',
-  cache: new InMemoryCache(),
+const client = new Client({
+  url: 'http://127.0.0.1:8080/query',
+  exchanges: [cacheExchange, fetchExchange],
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
   // useCsrfToken();
   return (
-    <ApolloProvider client={client}>
+    <Provider value={client}>
       <UiProvider>
         <div className="bg-slate-100">
           <Component {...pageProps} />
         </div>
       </UiProvider>
-    </ApolloProvider>
+    </Provider>
   );
 }
 

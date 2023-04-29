@@ -1,11 +1,11 @@
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
+import gql from 'graphql-tag';
+import * as Urql from 'urql';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-const defaultOptions = {} as const;
+export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -55,29 +55,6 @@ export const TodoListDocument = gql`
 }
     `;
 
-/**
- * __useTodoListQuery__
- *
- * To run a query within a React component, call `useTodoListQuery` and pass it any options that fit your needs.
- * When your component renders, `useTodoListQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useTodoListQuery({
- *   variables: {
- *   },
- * });
- */
-export function useTodoListQuery(baseOptions?: Apollo.QueryHookOptions<TodoListQuery, TodoListQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<TodoListQuery, TodoListQueryVariables>(TodoListDocument, options);
-      }
-export function useTodoListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TodoListQuery, TodoListQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<TodoListQuery, TodoListQueryVariables>(TodoListDocument, options);
-        }
-export type TodoListQueryHookResult = ReturnType<typeof useTodoListQuery>;
-export type TodoListLazyQueryHookResult = ReturnType<typeof useTodoListLazyQuery>;
-export type TodoListQueryResult = Apollo.QueryResult<TodoListQuery, TodoListQueryVariables>;
+export function useTodoListQuery(options?: Omit<Urql.UseQueryArgs<TodoListQueryVariables>, 'query'>) {
+  return Urql.useQuery<TodoListQuery, TodoListQueryVariables>({ query: TodoListDocument, ...options });
+};
