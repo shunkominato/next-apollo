@@ -1,9 +1,12 @@
+import { useTodoListQuery } from '@/graphql/generated/graphql';
 import { Table } from '@mantine/core';
 import { FC, memo } from 'react';
-import { useFetchTodos } from './useFetchTodos';
 
 export const ResultTable: FC = memo(() => {
-  const { todoList } = useFetchTodos();
+  const { data: todoList, loading, error } = useTodoListQuery();
+  console.log(todoList);
+  console.log(loading);
+  console.log(error);
 
   return (
     <Table>
@@ -15,11 +18,12 @@ export const ResultTable: FC = memo(() => {
         </tr>
       </thead>
       <tbody>
-        {todoList?.map((todo) => (
+        {todoList?.todos.map((todo) => (
           <tr key={todo.id}>
             <td>{todo.id}</td>
             <td>{todo.todo}</td>
-            <td>{todo.status}</td>
+            <td>{todo.todoStatusId}</td>
+            <td>{todo.user.name}</td>
           </tr>
         ))}
       </tbody>

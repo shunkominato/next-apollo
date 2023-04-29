@@ -1,0 +1,11 @@
+query todoList {
+  todos {
+    id
+    todo
+    todoStatusId
+    user {
+      id
+      name
+    }
+  }
+}

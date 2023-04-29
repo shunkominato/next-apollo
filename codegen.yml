@@ -1,7 +1,8 @@
 overwrite: true
+documents: 'src/**/*.doc.graphql'
 schema:
-  - 'src/hooks/*.graphql'
-  - 'src/page-features/**/*.graphql'
+  - 'src/hooks/*.schema.graphql'
+  - 'src/page-features/**/*.schema.graphql'
 # documents:
 #   - 'src/components/**/*.tsx'
 #   - 'src/hooks/**/*.tsx'
@@ -22,9 +23,16 @@ generates:
   # - 'src/lib/**/*.graphql'
   # - 'src/util/**/*.graphql'
   # - 'src/graphql/*.graphql'
-  src/graphql/generated/:
-    preset: 'client'
-    plugins: []
+  src/graphql/generated/graphql.tsx:
+    # preset: 'client'
+    plugins:
+      - typescript
+      - typescript-operations # .tsx に書いた query, mutation 等から対応する型を生成する
+      - typescript-react-apollo # .tsx に書いた query, mutation 等から対応する hooks を生成する
+    config:
+      withComponent: false
+      withHooks: true
+      withHOC: false
   ./graphql.schema.json:
     plugins:
       - 'introspection'
