@@ -1,8 +1,7 @@
 overwrite: true
 documents: 'src/**/*.docs.graphql'
 schema:
-  - 'src/hooks/*.schema.graphql'
-  - 'src/page-features/**/*.schema.graphql'
+  - 'http://127.0.0.1:8080/query'
 # documents:
 #   - 'src/components/**/*.tsx'
 #   - 'src/hooks/**/*.tsx'
