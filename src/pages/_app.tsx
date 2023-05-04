@@ -1,12 +1,18 @@
 import type { AppProps } from 'next/app';
 
 import '../styles/globals.css';
-import { Client, Provider, cacheExchange, fetchExchange } from 'urql';
+import {
+  Client,
+  Provider,
+  cacheExchange,
+  fetchExchange,
+  debugExchange,
+} from 'urql';
 import { UiProvider } from '../lib/providers/UiProvider';
 
 const client = new Client({
   url: 'http://127.0.0.1:8080/query',
-  exchanges: [cacheExchange, fetchExchange],
+  exchanges: [cacheExchange, fetchExchange, debugExchange],
 });
 
 function MyApp({ Component, pageProps }: AppProps) {

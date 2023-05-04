@@ -3,10 +3,13 @@ import { Table } from '@mantine/core';
 import { FC, memo } from 'react';
 
 export const ResultTable: FC = memo(() => {
-  const { data: todoList, loading, error } = useTodoListQuery();
-  console.log(todoList);
-  console.log(loading);
-  console.log(error);
+  const [res] = useTodoListQuery();
+  const { data, error, fetching } = res;
+  if (!data) {
+    return <p>Error Occurred</p>;
+  }
+
+  const todoList = data.todos;
 
   return (
     <Table>
@@ -18,7 +21,7 @@ export const ResultTable: FC = memo(() => {
         </tr>
       </thead>
       <tbody>
-        {todoList?.todos.map((todo) => (
+        {todoList.map((todo) => (
           <tr key={todo.id}>
             <td>{todo.id}</td>
             <td>{todo.todo}</td>

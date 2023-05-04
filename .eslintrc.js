@@ -48,6 +48,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'no-alert': 'off',
     'react/display-name': 'off',
+    'no-non-null-assertion': 'off',
     curly: 'off',
   },
 };

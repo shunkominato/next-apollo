@@ -47,6 +47,7 @@
     "@graphql-codegen/client-preset": "3.0.0",
     "@graphql-codegen/introspection": "3.0.1",
     "@graphql-codegen/typescript-urql": "^3.7.3",
+    "@graphql-codegen/urql-introspection": "^2.2.1",
     "@next/bundle-analyzer": "^13.2.3",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",

@@ -1518,7 +1518,7 @@
     "@graphql-codegen/visitor-plugin-common" "^3.0.1"
     tslib "~2.5.0"
 
-"@graphql-codegen/plugin-helpers@^2.7.2":
+"@graphql-codegen/plugin-helpers@^2.6.2", "@graphql-codegen/plugin-helpers@^2.7.2":
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/plugin-helpers/-/plugin-helpers-2.7.2.tgz#6544f739d725441c826a8af6a49519f588ff9bed"
   integrity sha512-kln2AZ12uii6U59OQXdjLk5nOlh1pHis1R98cDZGFnfaiAbX9V3fxcZ1MMJkB7qFUymTALzyjZoXXdyVmPMfRg==
@@ -1593,6 +1593,15 @@
     "@graphql-codegen/visitor-plugin-common" "3.1.0"
     auto-bind "~4.0.0"
     tslib "~2.5.0"
+
+"@graphql-codegen/urql-introspection@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/urql-introspection/-/urql-introspection-2.2.1.tgz#97baaf09bf91b044a21dd6715af22e0ba6d829ec"
+  integrity sha512-/KjHSf4dQNoYZZ+G10b3lbw304ik9xHzRf/syNvoYehmwdYE5J7RnO1v1Cz78LDm2NEdsFas6vJHi0sJd/pOHg==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "^2.6.2"
+    "@urql/introspection" "^0.3.2"
+    tslib "~2.4.0"
 
 "@graphql-codegen/visitor-plugin-common@2.13.1":
   version "2.13.1"
@@ -4259,6 +4268,11 @@
   dependencies:
     "@0no-co/graphql.web" "^1.0.1"
     wonka "^6.3.2"
+
+"@urql/introspection@^0.3.2":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@urql/introspection/-/introspection-0.3.3.tgz#5bcedfebd515161eecf9b193169c2765bf5674f1"
+  integrity sha512-tekSLLqWnusfV6V7xaEnLJQSdXOD/lWy7f8JYQwrX+88Md+voGSCSx5WJXI7KLBN3Tat2OV08tAr8UROykls4Q==
 
 "@webassemblyjs/ast@1.11.1":
   version "1.11.1"
