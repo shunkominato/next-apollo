@@ -1,10 +1,10 @@
-type Todo {
-  id: ID!
-  todo: String!
-  todoStatusId: String!
-  user: User!
-}
+# type Todo {
+#   id: ID!
+#   todo: String!
+#   todoStatusId: String!
+#   user: User!
+# }
 
-type Query {
-  todos: [Todo!]!
-}
+# type Query {
+#   todos: [Todo!]!
+# }

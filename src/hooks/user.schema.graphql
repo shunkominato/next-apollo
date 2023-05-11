@@ -1,8 +1,8 @@
-type User {
-  id: ID!
-  name: String!
-}
+# type User {
+#   id: ID!
+#   name: String!
+# }
 
-type Query {
-  users: [User!]!
-}
+# type Query {
+#   users: [User!]!
+# }

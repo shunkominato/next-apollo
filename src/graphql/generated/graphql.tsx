@@ -87,10 +87,10 @@ export type PaginationInfo = {
 
 export type Query = {
   __typename?: 'Query';
-  todo?: Maybe<Todo>;
+  todo: Todo;
   todoPagination: TodoPagination;
   todoStatus?: Maybe<TodoStatus>;
-  todos?: Maybe<Array<Maybe<Todo>>>;
+  todos: Array<Todo>;
   user?: Maybe<User>;
 };
 
@@ -156,7 +156,7 @@ export type User = {
 export type TodoListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type TodoListQuery = { __typename?: 'Query', todos?: Array<{ __typename?: 'Todo', id: string, todo: string, todoStatusId: number, user: { __typename?: 'User', id: string, name: string } } | null> | null };
+export type TodoListQuery = { __typename?: 'Query', todos: Array<{ __typename?: 'Todo', id: string, todo: string, todoStatusId: number, user: { __typename?: 'User', id: string, name: string } }> };
 
 
 export const TodoListDocument = gql`
@@ -481,9 +481,12 @@ export default {
           {
             "name": "todo",
             "type": {
-              "kind": "OBJECT",
-              "name": "Todo",
-              "ofType": null
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Todo",
+                "ofType": null
+              }
             },
             "args": [
               {
@@ -545,11 +548,17 @@ export default {
           {
             "name": "todos",
             "type": {
-              "kind": "LIST",
+              "kind": "NON_NULL",
               "ofType": {
-                "kind": "OBJECT",
-                "name": "Todo",
-                "ofType": null
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Todo",
+                    "ofType": null
+                  }
+                }
               }
             },
             "args": []
